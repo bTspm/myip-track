@@ -1,0 +1,9 @@
+default: &default
+
+  ip_details.url: http://ip-api.com/json/
+
+development: &development
+  <<: *default
+
+test:
+  <<: *development
