@@ -20,4 +20,23 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  labels:
+    ip_details:
+      ip: IP
+      provider: Provider
+      hostname: Hostname
+      country: Country
+      city: City
+      region: Region
+      postal_code: Postal Code
+      longitude: Longitude
+      latitude: Latitude
+      timezone: Timezone
+      search_query: IP v4, v6 OR Domain Name
+
+    proxy_details:
+      proxy: Proxy
+      type: Type
+      provider: Provider
+      search_query: IP v4 Address
+      proxy_check: Proxy Check

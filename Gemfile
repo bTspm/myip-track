@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'btspm', '0.0.1'
+gem 'btspm', '0.0.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.9'
@@ -45,6 +45,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap-sass'
+gem 'font-awesome-rails'
+gem 'flag-icons-rails'
 
 gem 'faraday', '~> 0.12.1'
 gem 'webmock', '~> 2.1'

@@ -1,24 +1,24 @@
-<br>
-<div class="container">
+<%= render partial: 'home/google_maps' %>
 
-  <%= form_tag(root_path, method: :get, remote: true) do %>
-  <div class="container">
-    <div class="input-group">
-      <input type="text" value="<%= params[:search_query] %>" name="search_query" class="form-control" placeholder="IP or Domain Name" id="txtSearch"/>
-      <div class="input-group-btn">
-        <button class="btn btn-primary" type="submit">
-          <span class="glyphicon glyphicon-search"></span>
-        </button>
+<%= form_tag(root_path, method: :get, remote: true) do %>
+    <div class="row ">
+      <div class="input-group">
+        <input type="text" value="<%= params[:search_query] %>" name="search_query" class="form-control" placeholder="<%= I18n.t('labels.ip_details.search_query') %>"/>
+        <div class="input-group-btn">
+          <button class="btn btn-primary" type="submit">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-  <% end %>
+<% end %>
 
-  <br>
-
-  <div id="ip_details">
-    <%= render partial: 'home/ip_details' %>
-  </div>
-
+<div class="row top-buffer" id="ip_details">
+  <%= render partial: 'home/ip_details' %>
 </div>
 
+<hr>
+
+<div class="row" id="additional_details">
+  <%= render partial: 'home/additional_details' %>
+</div>

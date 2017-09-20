@@ -1,0 +1,47 @@
+<% if request.format.symbol == :html %>
+    <div class="panel panel-success">
+      <div class="panel-heading text-center"><%= I18n.t('labels.proxy_details.proxy_check') %></div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-1"></div>
+
+          <!--Proxy Search Box-->
+          <div class="col-md-10">
+            <%= form_tag(home_proxy_details_path, method: :get, remote: true) do %>
+                <div class="input-group">
+                  <input type="text" value="<%= params[:search_query] || @ip_details[:query] %>" name="search_query" class="form-control" placeholder='<%= I18n.t('labels.proxy_details.search_query') %>' id="proxy_search"/>
+                  <div class="input-group-btn">
+                    <button class="btn btn-primary" type="submit">
+                      <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                  </div>
+                </div>
+            <% end %>
+
+            <!--Proxy Details-->
+            <div id="proxy_details"></div>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+<% else %>
+    <table class="top-buffer table table-hover table-striped">
+      <tbody>
+      <tr>
+        <th><%= I18n.t('labels.proxy_details.proxy') %></th>
+        <td><%= @proxy_details.proxy_format(result: @proxy_details[:proxy]) %></td>
+      </tr>
+
+      <tr>
+        <th><%= I18n.t('labels.proxy_details.type') %></th>
+        <td><%= @proxy_details.display_format(value: @proxy_details[:type]) %></td>
+      </tr>
+
+      <tr>
+        <th><%= I18n.t('labels.proxy_details.provider') %></th>
+        <td><%= @proxy_details.display_format(value: @proxy_details[:provider]) %></td>
+      </tr>
+      </tbody>
+    </table>
+<% end %>

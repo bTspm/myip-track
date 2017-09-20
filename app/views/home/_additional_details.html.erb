@@ -1,0 +1,13 @@
+<div class="col-md-4">
+  <%= render partial: 'home/proxy_details' %>
+</div>
+
+<div class="col-md-8">
+  <div id="system_information"></div>
+</div>
+
+<script>
+
+    asyncDetails.init('<%= @ip_details[:query] %>')
+
+</script>

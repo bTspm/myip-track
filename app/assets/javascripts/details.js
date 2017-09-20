@@ -18,4 +18,22 @@ ipLocation = (function () {
     }
 })();
 
+asyncDetails = (function (){
+    function init(ip){
+        $(window).load(function() {
+            proxyDetails(ip);
+        });
+    }
 
+    function proxyDetails(ip) {
+        $.ajax({
+            url: "/home/proxy_details",
+            data: {search_query: ip},
+            contentType: "text/javascript"
+        });
+    }
+    return {
+        init: init,
+        proxyDetails: proxyDetails
+    }
+})();

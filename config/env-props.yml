@@ -1,6 +1,7 @@
 default: &default
 
   ip_details.url: http://ip-api.com/json/
+  proxy_details.url: http://proxycheck.io/v1/
 
 development: &development
   <<: *default

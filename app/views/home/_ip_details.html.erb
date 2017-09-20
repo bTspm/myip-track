@@ -3,46 +3,50 @@
   <table class="table table-hover table-striped">
     <tbody>
     <tr>
-      <th>IP</th>
-      <td><%= @ip_details[:query] %></td>
+      <th><%= I18n.t('labels.ip_details.ip') %></th>
+      <td><%= @ip_details.display_format(value: @ip_details[:query]) %></td>
     </tr>
     <tr>
-      <th>Provider</th>
-      <td><a href="https://www.google.com/search?q=Liberty+Mutual+Group" target="_blank"><%= @ip_details[:org] %> </a>
-    </tr>
-    <tr>
-      <th>Hostname</th>
-      <td><%= @ip_details[:isp] %></td>
-    </tr>
-    <tr>
-      <th>Country</th>
+      <th><%= I18n.t('labels.ip_details.provider') %></th>
       <td>
-        <span class="flag-icon flag-icon-us"></span> <%= "#{@ip_details[:country]}" "(#{@ip_details[:countryCode]})" %>
+        <a href="<%= "#{@ip_details.org_search_url(org: @ip_details[:org])}" %>" target="_blank">
+          <%= @ip_details.display_format(value: @ip_details[:org]) %> </a>
       </td>
     </tr>
     <tr>
-      <th>City</th>
-      <td><%= @ip_details[:city] %></td>
+      <th><%= I18n.t('labels.ip_details.hostname') %></th>
+      <td><%= @ip_details.display_format(value: @ip_details[:isp]) %></td>
     </tr>
     <tr>
-      <th>Region</th>
-      <td><%= "#{@ip_details[:regionName]}" "(#{@ip_details[:region]})" %></td>
+      <th><%= I18n.t('labels.ip_details.country') %></th>
+      <td>
+        <span class="flag-icon flag-icon-<%= @ip_details.country_code(code: @ip_details[:countryCode]) %>"></span>
+        <%= @ip_details.region_country_format(name: @ip_details[:country], code: @ip_details[:countryCode]) %>
+      </td>
     </tr>
     <tr>
-      <th>Postal Code</th>
-      <td><%= @ip_details[:zip] %></td>
+      <th><%= I18n.t('labels.ip_details.city') %></th>
+      <td><%= @ip_details.display_format(value: @ip_details[:city]) %></td>
     </tr>
     <tr>
-      <th>Longitude</th>
-      <td><%= @ip_details[:lon] %></td>
+      <th><%= I18n.t('labels.ip_details.region') %></th>
+      <td><%= @ip_details.region_country_format(name: @ip_details[:regionName], code: @ip_details[:region]) %></td>
     </tr>
     <tr>
-      <th>Latitude</th>
-      <td><%= @ip_details[:lat] %></td>
+      <th><%= I18n.t('labels.ip_details.postal_code') %></th>
+      <td><%= @ip_details.display_format(value: @ip_details[:zip]) %></td>
     </tr>
     <tr>
-      <th>TimeZone</th>
-      <td><%= @ip_details[:timezone] %></td>
+      <th><%= I18n.t('labels.ip_details.longitude') %></th>
+      <td><%= @ip_details.display_format(value: @ip_details[:lon]) %></td>
+    </tr>
+    <tr>
+      <th><%= I18n.t('labels.ip_details.latitude') %></th>
+      <td><%= @ip_details.display_format(value: @ip_details[:lat]) %></td>
+    </tr>
+    <tr>
+      <th><%= I18n.t('labels.ip_details.timezone') %></th>
+      <td><%= @ip_details.display_format(value: @ip_details[:timezone]) %></td>
     </tr>
     </tbody>
   </table>
